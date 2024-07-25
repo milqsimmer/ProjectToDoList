@@ -1,3 +1,0 @@
-# rodar backend: na pasta backend-todo-list rodar uvicorn main:app --reload
-
-curl -X DELETE "http://localhost:8000/tasks/1"
