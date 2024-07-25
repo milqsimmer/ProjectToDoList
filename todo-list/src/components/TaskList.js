@@ -86,28 +86,32 @@ const TaskList = () => {
     setEditTaskId(null);
   };
 
+  console.log(tasks);
+
   return (
     <Center>
       <VStack spacing={4} width="100%" maxW="1000px" overflowX="auto">
-        <FormControl>
-          <FormLabel>new task</FormLabel>
-          <HStack>
-            <Input
-              placeholder="Title"
-              value={newTitle}
-              onChange={(e) => setNewTitle(e.target.value)}
-            />
-            <Input
-              placeholder="Description"
-              value={newDescription}
-              onChange={(e) => setNewDescription(e.target.value)}
-            />
-            <Button colorScheme="pink" onClick={createTask}>
-              Add Task
-            </Button>
-          </HStack>
-        </FormControl>
-        <TableContainer>
+        <Box width="100%" maxW="1000px">
+          <FormControl>
+            <FormLabel>new task</FormLabel>
+            <HStack>
+              <Input
+                placeholder="Title"
+                value={newTitle}
+                onChange={(e) => setNewTitle(e.target.value)}
+              />
+              <Input
+                placeholder="Description"
+                value={newDescription}
+                onChange={(e) => setNewDescription(e.target.value)}
+              />
+              <Button colorScheme="pink" onClick={createTask}>
+                add
+              </Button>
+            </HStack>
+          </FormControl>
+        </Box>
+        <TableContainer width="100%" maxW="1000px">
           <Table variant="striped" colorScheme="pink">
             <Thead>
               <Tr>
@@ -162,16 +166,17 @@ const TaskList = () => {
                       <Td>{task.status}</Td>
                       <Td>
                         <Button
+                          mr="1"
                           colorScheme="gray"
                           onClick={() => editTask(task)}
                         >
-                          Edit
+                          edit
                         </Button>
                         <Button
-                          colorScheme="red"
+                          colorScheme="gray"
                           onClick={() => deleteTask(task.id)}
                         >
-                          Delete
+                          delete
                         </Button>
                       </Td>
                     </>
